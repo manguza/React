@@ -7,7 +7,7 @@
 
 body{
     background: ghostwhite;
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -23,16 +23,14 @@ body{
 
 .Column {
     float: left;
-    width: 50%;
+    width: 40%;
     padding: 10px;
     height: 300px; /* Should be removed. Only for demonstration */
+    margin-left: 150px;
 }  
 
 .Title{
     text-align: center;
-    margin-top: 30px;
-    margin-left: 50px;
-    margin-right: 50px;
     border: 2px solid black;
     background-color: palegoldenrod;
 }
@@ -41,27 +39,16 @@ body{
     text-align: center;
     background: #fff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
-    margin-left: 50px;
-    margin-right: 50px;
 }
 
 .Name{
     text-align: left;
-    margin-left: 50px;
-    margin-right: 50px;
     border: 2px solid black;
     background-color: palegoldenrod;
 }
 
-.DataPruk{
-    text-align: left;
-    margin-left: 50px;
-    margin-right: 500px;
-}
-
 label{
-    margin-left: 50px;
-    margin-right: 10px;
+    margin: auto;
     background: #fff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
     padding: 2px;
@@ -72,8 +59,16 @@ label{
 }
 
 input{
-    margin-left: 50px;
-    margin-right: 10px;
+    margin: auto;
     background: #fff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+    width: 100%;
+}
+
+button{
+    margin: auto;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
 }

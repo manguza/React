@@ -2,7 +2,7 @@ import "./Design.css";
 
 const Name = "Visit to Developer"
 
-function Footer(){
+const Footer = () => {
     return(
         <div>
             <p className="Name">

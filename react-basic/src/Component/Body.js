@@ -1,32 +1,89 @@
+import { useState } from 'react'
 import "./Design.css";
 
-function Body(){
+const Body = () => {
+
+    const [Date, setDate] = useState('');
+    const [Data, setData] = useState('');
+    const [Price, setPrice] = useState(0);
+
+    const inputDatePruk = (event) =>{
+        setDate(event.target.value);
+        console.log(event.target.value);
+    };
+
+    const inputDataPruk = (event) =>{
+        setData(event.target.value);
+        console.log(event.target.value);
+    };
+
+    const inputPricePruk = (event) =>{
+        setPrice(event.target.value);
+        console.log(event.target.value);
+    };  
+
+    const saveDataPruk = (event) =>{
+        event.preventDefault();
+        const allData = {
+            Date : Date,
+            Data : Data,
+            Price : Number(Price)
+        }
+        console.log(allData);
+        setDate('');
+        setData('');
+        setPrice(0);
+    }
+
+    const inputDateWa = (event) =>{
+        console.log(event.target.value);
+    }
+
+    const inputDataWa = (event) =>{
+        console.log(event.target.value);
+    }
+
+    const inputPriceWa = (event) =>{
+        console.log(event.target.value);
+    }
+
+    const saveDataWa = (event) =>{
+        // event.preventDefault();
+        console.log("บันทึกข้อมูล");
+    }
+    
     return(
         <div className="Row">
-            <div className="Column">
-                <p className="Desc">Pruk Homnan</p>
-                <label for="DatePruk">วันที่ : </label>
-                <input type="date" id="DatePruk" name="DatePruk"></input><br></br>
-                <label for="GetPruk">รายรับ : </label>
-                <input type="number" id="GetPruk" name="GetPruk"></input>
-                <input type="button" id="PlusPruk" name="PlusPruk" value="+"></input><br></br>
-                <label for="OutPruk">รายจ่าย : </label>
-                <input type="number" id="OutPruk" name="OutPruk"></input>
-                <input type="button" id="NePruk" name="NePruk" value="-"></input><br></br>
-                <input type="submit" value="Submit"></input>
-            </div>
-            <div className="Column">
-                <p className="Desc">Wanichya Inpeng</p>
-                <label for="DateWa">วันที่ : </label>
-                <input type="date" id="DateWa" name="DateWa"></input><br></br>
-                <label for="GetWa">รายรับ : </label>
-                <input type="number" id="GetWa" name="GetWa"></input>
-                <input type="button" id="PlusWa" name="PlusWa" value="+"></input><br></br>
-                <label for="OutWa">รายจ่าย : </label>
-                <input type="number" id="OutWa" name="OutWa"></input>
-                <input type="button" id="NeWa" name="NeWa" value="-"></input><br></br>
-                <input type="submit" value="Submit"></input>
-            </div>
+            <form onSubmit={saveDataPruk}>
+                <div className="Column">
+                    <p className="Desc">Pruk Homnan</p>
+                        <label>วันที่ : </label>
+                        <input type="date" onChange={inputDatePruk} value={Date}/>
+
+                        <label>ขื่อรายการ : </label>
+                        <input type="text" placeholder="ระบุชื่อรายการ" onChange={inputDataPruk} value={Data}/>
+                   
+                        <label>จำนวนเงิน : </label>
+                        <input type="number" placeholder="(- รายจ่าย / + รายรับ)" onChange={inputPricePruk} value={Price}/>
+                    
+                        <button type="submit">เพิ่มข้อมูล</button>
+                </div>
+            </form>
+            <form onSubmit={saveDataWa}>
+                <div className="Column">
+                    <p className="Desc">Wanichya Inpeng</p>
+                        <label>วันที่ : </label>
+                        <input type="date" onChange={inputDateWa}/>
+
+                        <label>ขื่อรายการ : </label>
+                        <input type="text" placeholder="ระบุชื่อรายการ" onChange={inputDataWa}/>
+                   
+                        <label>จำนวนเงิน : </label>
+                        <input type="number" placeholder="(- รายจ่าย / + รายรับ)" onChange={inputPriceWa}/>
+                    
+                        <button type="submit">เพิ่มข้อมูล</button>
+                </div>
+            </form>
         </div>
     );
 }
