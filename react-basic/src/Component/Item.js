@@ -5,9 +5,13 @@ const Item = (props) => {
 
     const {Date,Data,Price} = props
     const status = Price < 0 ? "expense" : "income"
+    const symbol = Price < 0 ? "-" : "+"
+    const formatNumber = (num) => {
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }
 
     return (
-        <li className={status}>{Date} {Data} <span>{Price}</span></li>
+        <li className={status}><p>{Date}</p> {Data} <span>{symbol}{formatNumber(Math.abs(Price).toFixed(2))}</span></li>
     );
 }
 

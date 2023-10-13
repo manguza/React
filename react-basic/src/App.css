@@ -19,3 +19,24 @@ body{
   margin: 30px auto;
   width: 90%;
 }
+
+.horizontal-menu{
+  list-style-type: none;
+  margin: 10px;
+  padding: 0;
+  overflow: hidden;
+  background: #ADD8E6;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.horizontal-menu li{
+  display: inline-block;
+}
+
+.horizontal-menu a{
+  color: black;
+  padding: 20px;
+  display: block;
+}

@@ -1,26 +1,24 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import "./Design.css";
 import { v4 as uuidv4 } from 'uuid';
 
 const Body = (props) => {
 
-    const [Date, setDate] = useState('')
-    const [Data, setData] = useState('')
-    const [Price, setPrice] = useState(0)
+    const [Date, setDate] = useState('');
+    const [Data, setData] = useState('');
+    const [Price, setPrice] = useState(0);
+    const [formValid, setFormValid] = useState(false);
 
     const inputDatePruk = (event) =>{
         setDate(event.target.value)
-        console.log(event.target.value)
     };
 
     const inputDataPruk = (event) =>{
         setData(event.target.value)
-        console.log(event.target.value)
     };
 
     const inputPricePruk = (event) =>{
         setPrice(event.target.value)
-        console.log(event.target.value)
     };  
 
     const saveDataPruk = (event) =>{
@@ -35,22 +33,19 @@ const Body = (props) => {
         setDate('')
         setData('')
         setPrice(0)
-    }
+    };
 
     const inputDateWa = (event) =>{
         setDate(event.target.value)
-        console.log(event.target.value)
-    }
+    };
 
     const inputDataWa = (event) =>{
         setData(event.target.value)
-        console.log(event.target.value)
-    }
+    };
 
     const inputPriceWa = (event) =>{
         setPrice(event.target.value)
-        console.log(event.target.value)
-    }
+    };
 
     const saveDataWa = (event) =>{
         event.preventDefault()
@@ -64,7 +59,12 @@ const Body = (props) => {
         setDate('')
         setData('')
         setPrice(0)
-    }
+    };
+
+    useEffect(()=>{
+        const checkData = Date.trim().length > 0 && Data.trim().length > 0 && Price !== 0;
+            setFormValid(checkData)
+    }, [Date, Data, Price])
     
     return(
         <div className="Row">
@@ -78,24 +78,24 @@ const Body = (props) => {
                         <input type="text" placeholder="ระบุชื่อรายการ" onChange={inputDataPruk} />
                    
                         <label>จำนวนเงิน : </label>
-                        <input type="number" placeholder="(- รายจ่าย / + รายรับ)" onChange={inputPricePruk} />
+                        <input type="double" placeholder="(- รายจ่าย / + รายรับ)" onChange={inputPricePruk} />
                     
-                        <button type="submit">เพิ่มข้อมูล</button>
+                        <button type="submit" disabled={!formValid}>เพิ่มข้อมูล</button>
                 </div>
             </form>
             <form onSubmit={saveDataWa}>
                 <div className="Column">
                     <p className="Desc">วนิชยา อินทร์เพ็ง</p>
                         <label>วันที่ : </label>
-                        <input type="date" onChange={inputDateWa}/>
+                        <input type="date" onChange={inputDateWa} />
 
                         <label>ขื่อรายการ : </label>
-                        <input type="text" placeholder="ระบุชื่อรายการ" onChange={inputDataWa}/>
+                        <input type="text" placeholder="ระบุชื่อรายการ" onChange={inputDataWa} />
                    
                         <label>จำนวนเงิน : </label>
-                        <input type="number" placeholder="(- รายจ่าย / + รายรับ)" onChange={inputPriceWa}/>
+                        <input type="double" placeholder="(- รายจ่าย / + รายรับ)" onChange={inputPriceWa} />
                     
-                        <button type="submit">เพิ่มข้อมูล</button>
+                        <button type="submit" disabled={!formValid}>เพิ่มข้อมูล</button>
                 </div>
             </form>
         </div>

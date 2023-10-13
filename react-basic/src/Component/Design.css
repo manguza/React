@@ -15,14 +15,14 @@
 .Title{
     text-align: center;
     border: 2px solid black;
-    background-color: palegoldenrod;
+    background-color: #87CEFA;
     margin: 10px;
     border-radius: 5px;
 }
 
 .Desc{
     text-align: center;
-    background: #fff;
+    background: #ADD8E6;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
     margin: 10px;
     border-radius: 5px;
@@ -32,7 +32,7 @@
 .Name{
     text-align: left;
     border: 2px solid black;
-    background-color: palegoldenrod;
+    background-color: #87CEFA;
     margin: 10px;
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
@@ -76,11 +76,41 @@ button{
 
 .expense{
     border-right: 5px solid red;
-    text-align: center;
     list-style-type: none;
 }
 
 .income{
     border-right: 5px solid green;
+}
+
+.report-container{
+    display: flex;
+    justify-content: space-between;
+    background: #ADD8E6;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.report-container>div{
+    flex: 1;
     text-align: center;
+}
+
+.report-container>div:first-of-type{
+    border-right: 3px solid #fff  ;
+}
+
+.report{
+    font-size: 20px;
+    letter-spacing: 1px ;
+    margin: 5px 0;
+}
+
+.report.plus{
+    color: #2ecc71;
+}
+
+.report.minus{
+    color: red;
 }
